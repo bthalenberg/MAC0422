@@ -12,7 +12,9 @@ sala 201 - Bloco C
 ### Composição da média
 
 3 provas:
+
 | 15% P1  |  15% P2  | 70% P3 |
+| ----- | ------- | ------- | 
 | (opcional) | (opcional) | (obrigatória) |
 | (data) |     (data)  |    (data) |
 
