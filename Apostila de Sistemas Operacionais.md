@@ -12,17 +12,15 @@ sala 201 - Bloco C
 ### Composição da média
 
 3 provas:
-  15% P1  +  15% P2  +    70% P3
-
-(opcional) (opcional) (obrigatória)
-
-  (data)     (data)      (data)
+| 15% P1  |  15% P2  | 70% P3 |
+| (opcional) | (opcional) | (obrigatória) |
+| (data) |     (data)  |    (data) |
 
 Não fazer a prova opcional aumenta o peso da última prova.
 
 Média: Média = (2MP + NEP)/3
 
-4 eps - escalonamento, memória, entrada/saída, 
+3 eps - escalonamento, memória, entrada/saída
 
 ### Bibliografia
 
