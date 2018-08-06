@@ -1,0 +1,86 @@
+# EP
+
+## Parte I
+
+```
+ .--------------------------------------------------------------.
+ | User process | User process | User process |      ...        | } User
+ |--------------'--.-----------'-.------------'.----------------| }
+ | Process manager | File system | Info server | Network server | } space
+.++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.
++|-------------.---'--------.----'------------.'----------------|+}
++| Disk driver | TTY driver | Ethernet driver |       ...       |+} Kernel
++|-------------'------------'.----------------'.----------------|+} 
++|           Kernel          |   System task   |   Clock task   |+} space
++'--------------------------------------------------------------'+}
+'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+                Interrupções assíncronas/Escalonamento
+```
+
+Até a versão 2 do Minix, os drivers e o microkernel estavam, ambos, dentro do mesmo espaço de memória. Para a época, em que os computadores tinham pouco espaço e precisavam de mais velocidade, isso trazia eficiência.
+
+```
+ .--------------------------------------------------------------.
+ | User process | User process | User process |      ...        | } 
+ |--------------'--.-----------'-.------------'.----------------| } User
+ | Process manager | File system | Info server | Network server | } space
+ |-------------.---'--------.----'------------.'----------------| }
+ | Disk driver | TTY driver | Ethernet driver |       ...       | } 
+.++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.
++|-------------'------------'.----------------'.----------------|+} Kernel
++|           Kernel          |   System task   |   Clock task   |+} space
++'--------------------------------------------------------------'+}
+'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+    Interrupções assíncronas    Escalonamento
+
+```
+
+A partir da versão 3 do Minix, com computadores mais poderosos, os drivers foram separados e colocados em espaço de memória, como processos independentes. O System task e o Clock task funcionam como drivers também, mas não puderam ser separados, independentemente, do espaço de memória do Kernel.
+
+No EP, será necessário fazer duas modificações:
+1. Interrupção do teclado no Kernel - adicionar um 'printf' que imprimirá informações da fila de prioridade do Kernel (visível  pelo process manager).
+2. Implementação de rotina de biblioteca - adicionar uma chamada de sistema que enviará mensagens para o 'process manager', mandando que se atualize a tabela de processos.
+   * A função deve ser enviada com 'send' e, logo em seguida, esperar a resposta com 'receive'.
+   * O funcionamento do 'fork' é um bom exemplo de como se comunicar com o 'process manager' (e este, com o 'system task').
+
+DICAS: 
+1. Olhar código do fork
+2. Olhar código do system task
+3. Colocar a prioridade como prioridade de usuário (fazer testes!)
+
+## Parte II - Filas de prioridade do Minix
+
+```
+15 IDEL_Q -> idle (processo que não faz nada)
+
+07 USER_Q -> init
+
+04        -> fs
+03        -> rs     -> pm
+02        -> disk   -> lof   -> mem
+01        -> tty
+00 TASK_Q -> system -> clock
+```
+
+## Parte III - Compactação de memória
+    
+            .---------------.   |   
+            |       4       |   |   Para esse EP, precisaremos criar
+       1087 |---------------|   |   um mecanismo_de_compactação de 
+            |+++++++++++++++|   |   memória, que será acionado em dois
+            |+++++++++++++++|   |   casos:
+            |---------------|   |   1) Quando, na memória, não couber
+            |               |   |      mais nenhum processo;
+            |      47       |   |   2) Com uma chamada de sistema para
+            |               |   |      o process manager for acionada.
+            |---------------|   |   
+            |+++++++++++++++|   |   Precisaremos usar o fork como
+        410 |---------------|   |   exemplo, pois ele faz modificações.
+            |               |   |   Porém, não geraremos dois processos
+            |---------------|   |   filhos.
+            |+++++++++++++++|   |   
+            |+++++++++++++++|   |   Algumas preocupações extras:
+        100 |---------------|   |   - Observar em qual sentido a memória é copiada pelo system task (que definirá o sentido da compactação)
+            |      30       |   |   - Verificar a modificação das seções de texto que ficam armazenadas na Tabela de Processos.
+            '---------------'   |   - Tomar cuidado com processos duplicados pelo fork.  
+                                |   
