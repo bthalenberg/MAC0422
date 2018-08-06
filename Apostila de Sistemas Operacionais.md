@@ -13,7 +13,9 @@ sala 201 - Bloco C
 
 3 provas:
   15% P1  +  15% P2  +    70% P3
+
 (opcional) (opcional) (obrigatória)
+
   (data)     (data)      (data)
 
 Não fazer a prova opcional aumenta o peso da última prova.
@@ -2460,7 +2462,6 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
 * Potencialmente lentos e alto uso de espaço
 * O que recuperar?
     - Dump Físico vs Dump Lógico
-
 * Dump físico
     - Disco inteiro é copiado (simples, mas demorado)
     - Cuidado com blocos inválidos
