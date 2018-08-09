@@ -6,7 +6,9 @@ Esse documento é apenas uma reformatação das anotações de aula do Renato Co
 
 ### Professor
 Alan
+
 aland@usp.br
+
 sala 201 - Bloco C
 
 ### Composição da média
@@ -14,21 +16,18 @@ sala 201 - Bloco C
 3 provas:
 
 | 15% P1  |  15% P2  | 70% P3 |
-| ----- | ------- | ------- | 
+| ----- | ------- | ------- |
 | (opcional) | (opcional) | (obrigatória) |
 | (data) |     (data)  |    (data) |
 
 Não fazer a prova opcional aumenta o peso da última prova.
 
-Média: Média = (2MP + NEP)/3
-
-3 eps - escalonamento, memória, entrada/saída
 
 ### Bibliografia
 
-* Operating	Systems: Design	and	Implementation.	A. Tanembaum, A. Woodhul. (3a	edição)	
-* Sistemas	Operacionais. A. Silberschatz, P. Galvin --	ótimo livro de	referência.	
-* Operating	Systems. H.M. Deitel – livro muito fácil de	ler	e muito	claro; a primeira e segunda	edição tem estudos de caso de	sistemas antigos que valem a pena serem lidos.	
+* Operating	Systems: Design	and	Implementation.	A. Tanembaum, A. Woodhul. (3a	edição)
+* Sistemas	Operacionais. A. Silberschatz, P. Galvin --	ótimo livro de	referência.
+* Operating	Systems. H.M. Deitel – livro muito fácil de	ler	e muito	claro; a primeira e segunda	edição tem estudos de caso de	sistemas antigos que valem a pena serem lidos.
 
 
 -------------------------------------------------
@@ -40,28 +39,28 @@ De forma geral, a Computação repete invenções antigas. No caso dos SOs, houv
 ### Linha do tempo:
 
 * Babbage (1792-1871): Máquina de calcular mecânica
-* Compudator moderno (1940): 
+* Computador moderno (1940):
     - Cálculos para construir a primeira bomba atômica
     - John von Neumann (Princeton/Harvard)
     - Não havia ainda sistema operacional (programação era feita redirecionando os circuítos entre portas lógicas do hardware)
     - Programação = "Redrawing"
 * Transistores (1960)
-    - Transistores substituiíram as válvulas, o que permitiu construir sistemas mais complexos e programáveis.
+    - Transistores substituíram as válvulas, o que permitiu construir sistemas mais complexos e programáveis.
     - Programação em binário.
     - Começou a fazer sentido criar um conjunto de rotinas que automatizassem comandos comuns de entrada e saída. Essa agregação gerou os primeiros SOs (que eram bibliotecas).
-    - O primeiro SO eram o dos batches, que incluíam um sistema de controle pararodar os processos.
+    - O primeiro SO era o dos batches, que incluía um sistema de controle para rodar os processos.
     - As informações eram guardadas em fitas magnéticas, e vários computadores eram responsáveis por cada função (entrada, saída).
     - A saída padrão eram impressoras ou fitas magnéticas.
     - A entrada padrão era o teclado, mas mais para o operador.
     - Quando criou-se o sistema batch, ele funcionava como um aviso para os programadores.
-    - Depois, descobriu-se que a maiorai dos programas perdiam mais tempo em entrada e saída. Por isso, surgiram os computadores multiprogramados - que aceitavam vários programas, cada um fazendo alguma modificação.
+    - Depois, descobriu-se que a maioria dos programas perdiam mais tempo em entrada e saída. Por isso, surgiram os computadores multiprogramados - que aceitavam vários programas, cada um fazendo alguma modificação.
     - Surgiram linguagens de alto nível, que convertiam para assembly: LISP (1958), FORTRAN (1954), ALGOL (1958).
-    - 2 tipos de computadores: 
-        -> Científicos: com Fortran, voltados a processamento
-        -> Comerciais: com Cobol, voltados à entrada e saída  
+    - 2 tipos de computadores:
+        - Científicos: com Fortran, voltados a processamento
+        - Comerciais: com Cobol, voltados à entrada e saída  
 * Circuitos integrados
-    - A IBM criou a série IBM/360 - uma série de computadores com circuítos integrados que tinham compatibilidade na linguagem de máquina: um programa compilado em um rodaria em outro.
-    - Multics: sistema operacional que permitiria atender vários usuários ao mesmo tempo (processamento científico, iterativo, comercial, etc). Ele criou um sistema de prioridades que permitia distribuir o usoda CPU entre os computadores. O nome Unix veio de uma brincadeia com o nome Multics.
+    - A IBM criou a série IBM/360 - uma série de computadores com circuitos integrados que tinham compatibilidade na linguagem de máquina: um programa compilado em um rodaria em outro.
+    - Multics: sistema operacional que permitiria atender vários usuários ao mesmo tempo (processamento científico, iterativo, comercial, etc). Ele criou um sistema de prioridades que permitia distribuir o uso da CPU entre os computadores. O nome Unix veio de uma brincadeia com o nome Multics.
     - O ideal, nesse momento, é que a CPU trabalhasse 100% a todo o momento.
     - Criou-se um sistema que permitia memória virtual - o usuário não precisava olhar mais para um endereço no disco diretamente, pois quem fazia isso era o hardware.
     - Key Thompson criou o UNICS, uma versão simplificada do MULTICS.
@@ -75,9 +74,9 @@ De forma geral, a Computação repete invenções antigas. No caso dos SOs, houv
     - A Sun fez, então, um computador que tinha o contrário: reduziu o conjunto de instruções (RISC), com várias instruções pequenas e de rápida execução, facilmente otimizáveis pelos compiladores.
     - O sistema distribuído era uma forma de associar em que era  transparente a existência dos computadores.
     - A área de compiladores e bancos de dados se separa sistemas operacionais, e se dessenvolveram independentemente.
-* MINIX: 
+* MINIX:
     - primeira versão do UNIX para PC;
-    - gratuíto;
+    - gratuito;
     - voltado para o ensino de sistemas operacionais;
     - em 1957, a AT&T fechou o código do UNIX. O MINIX foi criado com a mesma interface do UNIX para ajudar no ensino de computação;
     - muito modular (drivers rodam fora do kernel);
@@ -100,22 +99,20 @@ O computador modero é composto de várias partes:
 A velocidade de acesso entre memórias é bem diferente. A memória interna (cache), muito rápido e em vários níveis, a memória RAM e o disco rígido (muito lento)
 
 * Barramento
-    - Trilhas comunicando uma ou mais dispositivos apenas uma mensagem de cada vez
+    - Trilhas comunicando um ou mais dispositivos; apenas uma mensagem de cada vez.
 * Processador
-    - Contador, pilha, PSW (prog. Status word), modo usuário e privilegiado (algumas instruções só podem ser executadas no modo de supervisão), multicore x singlecore (um core apenas será usado para a maioria dos algoritmos)
-    - Trap (interrupção): sinal eletrônico que faz o proessador entrar em modo privilegiado e muda o programa para um endereço pré-
-      especificado. Cada interrupção faz com que seja realizada alguma ação, sendo que elas estão armazenadas em um vetor de 
-      interrupções. Essas rotinas e o vetor são carregados assim que acontece o boot do SO.
+    - Contador, pilha, PSW (prog. status word), modo usuário e privilegiado (algumas instruções só podem ser executadas no modo de supervisão), multicore x singlecore (um core apenas será usado para a maioria dos algoritmos)
+    - Trap (interrupção): sinal eletrônico que faz o processador entrar em modo privilegiado e muda o programa para um endereço pré- especificado. Cada interrupção faz com que seja realizada alguma ação, sendo que elas estão armazenadas em um vetor de   interrupções. Essas rotinas e o vetor são carregados assim que acontece o boot do SO.
 * Memória
     - Proteção e troca de contexto: memória virtual, código realocável
     - A memória virtual é uma abstração: ela é, de fato, separada usando partes. Porém, existe um hardware específico que permite mudar a memória.
     - O hardware tem um registro das regiões que cada programa pode acessar. Se ele sair da região, é dado um sinal específico que "mata" o programa (falha de segmentação)
 * Discos
     - Prato, superfície, cilindros, trilhas, setores, cabeças.
-    - A taxa de transferência para o disco é muito lento, porque  a rotação do disco demora em taxa de milissegundos
+    - A taxa de transferência para o disco é muito lenta, porque  a rotação do disco demora em taxa de milissegundos
 
     ```
-    
+
                                         .------ cabeça para
             .----------------------.    '------ gravação
            / .--- trilha ---------. \    --.
@@ -123,17 +120,17 @@ A velocidade de acesso entre memórias é bem diferente. A memória interna (cac
          / '------------------------' \  --'
         '------------------------------' --.
         '------------------------------'   | pratos
-        '------------------------------'   | 
+        '------------------------------'   |
         '------------------------------' --'
-        Setor: mínimo de bytes que podem ser escritos na memória 
+        Setor: mínimo de bytes que podem ser escritos na memória
     ```
-    
+
 
 ### Outros dispositivos de I/O:
 
 *  Discos, vídeo, teclado, mouse, interfaces de rede, etc.
-* CPU não se comunica com dispositos (em geral, analódigos), mas com o circuíto didital de controle (controlador)
-* Controladores são conectados ao barramento, via alguns registradores mapenados na CPU
+* CPU não se comunica com dispositos (em geral, analódigos), mas com o circuíto digital de controle (controlador)
+* Controladores são conectados ao barramento, via alguns registradores mapeados na CPU
 * Cada controlador está associado a um "device driver" (interfaces padrão para acesso aos sistemas, convertidos via programas específicos em assembly)
 * Quando acabou? "bus waiting" ou interrupção.
 
@@ -144,12 +141,12 @@ A velocidade de acesso entre memórias é bem diferente. A memória interna (cac
 * 5 estados possíveis: rodando, pronto, bloqueado, suspenso (bloqueado e pronto)
 
     ```
-    
+
                          .-------.
                          |Running| ---> Terminate
                          '-------'
                 preempt / ^       \ block
-                       ^ / Run     ^ 
+                       ^ / Run     ^
                   .-----.        .-------.
        Create --->|Ready|<-------|blocked|
                   '-----'        '-------'
@@ -161,22 +158,25 @@ A velocidade de acesso entre memórias é bem diferente. A memória interna (cac
               .---------.          .---------.
               |  Ready  | <------- | Blocked |
               |Suspended|  unblock |Suspended|
-              '---------'          '---------' 
+              '---------'          '---------'
     ```
-    
+
 * Estados:
     - **Blocked**: Esperando pelo resultado de uma chamada ao sistema
     - **Ready**:   Pronto para rodar, mas não necessariamente rodando (outro programa de maior prioridade pode estar ocupando a CPU. Nesse estado, ele só precisa ocupar a CPU)
     - **Blocked Suspended**: Se muitos programas estão rodando ao mesmo tempo, um programa pode ser suspenso, e ficar aguardando até que o sistema se desocupe. Nesse estado, ele ainda está aguardando por alguma chamada ao sistema.
     - **Ready Suspended**: Quando o programa recebe sua requisição ao SO, fica Ready, mas ainda suspenso.
     - **Running**: O programa ocupando a CPU.
-    
+
 * Multiprogramação
-    - CPU deve ser otimizada com relação à execução (geralmente, programas com muito IO tem prioridade, porque eles usam a CPU e ficam bloqueados enquanto esperam as (demoradas) ações de IO).
+    - CPU deve ser otimizada com relação à execução (geralmente, programas com muito I/O tem prioridade, porque eles usam a CPU e ficam bloqueados enquanto esperam as (demoradas) ações de IO).
     - O sistema mostrado acima é o pseudo-paralelismo da CPU.
+    - Paralelismo real nos periféricos.
+    - NÃO é tempo real.
     - **Threads (processos leves):** linha de processamento distinta, no contexto de registradores, com mesmo estado de memória. Usar threads é diferente de criar processos filhos, porque neste caso cada um tem seu espaço de memória, e naquele, a memória é compartilhada dentro do processo.
+    - Diferença entre processo e threads: thread compartilha os recursos (tem problema de sincronização), processos são exclusivos.
     - **Tabela de processos:** guarda quais processos estão rodando, e a ordem em que são trocados.
-    - Processos não podem assumir nada em relação a tempo real  estão ou não executando).
+    - Processos não podem assumir nada em relação a tempo real: estão ou não executando.
 
 ### Minix
 
@@ -194,13 +194,14 @@ A velocidade de acesso entre memórias é bem diferente. A memória interna (cac
 #### Processos (Minix)
 
 * Processos podem se comunicar
+* Todos os processos são organizados em árvore (mata os pais -> mata os filhos; exceto usando "nohup", que faz o processo deixar de ser filho da sessão)
 * Organização hierárquica (Minix/Unix/Linux)
     - UID (User ID)
     - Obs: instrução 'fork' cria novo processo (clonado a partir do processo-pai, com registradores, processos, pilha, etc. todos iguais). O retorno do UID é 0 para o filho e o UID do filho para o pai.
     - Os filhos só podem saber quem são seus pais usando de comunicação:
         - Mensagens: Entre processos
         - Arquivos: Escrevendo entre um e outro
-        - Pipes (|): Muito mais rápido que usar os arquivos, porque cria-se um buffer na memória, em vez de um arquivo no disco.
+        - Pipes (|): Muito mais rápido que usar os arquivos, porque cria-se um buffer na memória, em vez de um arquivo no disco. Pipe é um pseudo arquivo implementado na memória contectando dois processos (um escreve e outro lê)
         - Sinais (signal): espécie de sinal assíncrono que faz que o receptor tenha código desviado para endereço pré-determinado. Os sinais fazem com que o outro programa tenha alguma ação parecida com uma interrupção. O destinatário pode ou não tratá-lo. Se tratar, a ação é parecida com a de interrupção. Porém, em vez de ir para um local pré-determinado no hardware, pode ir para outro.
 
 #### Arquivos Minix
@@ -208,10 +209,10 @@ A velocidade de acesso entre memórias é bem diferente. A memória interna (cac
 * Organização hierárquica
     - Diretório root (começando com /)
     - Caminhos absolutos e relativos (o diretório atual é guardado na tabela de processos)
-* Proteção 8 bits (rwx)
+* Proteção 9 bits (rwx)
 * Arquivo especial:
     - Acesso transparente ao I/O
-    - Bloco (disco): lê no apontador, e permite acesso aleatório. Ele pode ser alterado usando "seek" (para mudar o local) ou ler (com "read"). 
+    - Bloco (disco): lê no apontador, e permite acesso aleatório. Ele pode ser alterado usando "seek" (para mudar o local) ou ler (com "read").
     - Caracter (teclado, tela, etc.): só podem ser usados para ler ou escrever diretamente (read/write), pois não é possível "voltar" para o passado.
 * Todos os arquivos tÊm um DESCRITOR DE ARQUIVO.
 * Standard input/output: descritores de arquivo 0 e 1 (geralmente, são o teclado e a tela)
@@ -221,7 +222,7 @@ A velocidade de acesso entre memórias é bem diferente. A memória interna (cac
         - '--- major device number
 
 #### Estrutura do Minix
-  
+
 ```  
   .--------------------------------------------------------------.
  4| User process | User process | User process |      ...        | }User
@@ -234,18 +235,21 @@ A velocidade de acesso entre memórias é bem diferente. A memória interna (cac
   '--------------------------------------------------------------' space
 ```
 
-* Cada layer se comunica somente com uma camada abaixo dele. O espaço do kernel tem o gerenciado básico do sistema e o relógio, usado para os sistemas básicos (camada do Kernel).
+* Cada layer se comunica somente com uma camada abaixo dele. O espaço do kernel tem o gerenciamento básico do sistema e o relógio, usado para os sistemas básicos (camada do Kernel).
 * A segunda camada (drivers) são os programas que servem de interface para os componentes eletrônicos.
 * A terceira camada (servidores) são os que se comunicam com os programas, e são todos são os que podem se comunicar com os que estão abaixo.
 * A quarta camada são os processos normais do usuário, se comunicando com servidores de cada camada.
-    
+
 * 4 camadas: kernel (escalonamento de processos, tempo, tabelas, sistema de mensagens), drivers (abstração dos dispositivos), estratégias de escalonamento, sistema de arquivo e comunicação (apresentam "máquina virtual"), processos de usuário.
 * Apenas 1 camada em "espaço de kernel".
-* Outras camadas possuem processos sem compartilhamento de memória: comunicação por mensagens. As mensagens são implementadas usando uma chamada de sistemas específica. Essas mensagens têm uma estrutura específica, em que é guardada um ponteiro para o texto e o processo que enviou. A pessoa que enviou é bloqueado enquando ocorre a mensagem. O recebedor terá a mensagem COPIADA dentro do outro  processo, para ser lida. Quem implementa esse envio é o SO, fazendo a parte do baixo nível. O processo que ENVIA manda uma mensagem com a chamada 'send'. O processo que recebe fica com um 'receive', aguardando até receber algo. O 'send-receive' faz uma chamada e espera por ela. Esse processo é síncrono.
+* Outras camadas possuem processos sem compartilhamento de memória: comunicação por mensagens. As mensagens são implementadas usando uma chamada de sistemas específica. Essas mensagens têm uma estrutura específica, em que é guardada um ponteiro para o texto e o processo que enviou. A pessoa que enviou é bloqueada enquando ocorre a mensagem. O recebedor terá a mensagem COPIADA dentro do outro  processo, para ser lida. Quem implementa esse envio é o SO, fazendo a parte do baixo nível. O processo que ENVIA manda uma mensagem com a chamada 'send'. O processo que recebe fica com um 'receive', aguardando até receber algo. O 'send-receive' faz uma chamada e espera por ela. Esse processo é síncrono.
 * A mensagem é um processo síncrono, e é bem diferentes de sinais. Os sinais são processos ASSÍNCRONOS, em que o programa é interrompido no meio de qualquer ação.
 * O envio de mensagens é feito nas camadas inferiores, ABAIXO de servidores. Para as aplicações, existe a biblioteca de programas de chamadas ao sistema, que fazem por si próprias mensagens para os componentes corretos.
 * Sinais são tratados pelo Kernel, ao receber alguma transmissão, via o barramento, de um componente do hardware. Ele gera uma mensagem e envia para o Kernel correspondente.
     - Essa arquitetura é a arquitetura de microkernel.
+
+--------------------------------------
+ULTIMA aula
 
 #### Chamadas de sistema no Minix
 
@@ -329,7 +333,7 @@ A velocidade de acesso entre memórias é bem diferente. A memória interna (cac
                     close(fd[0]);  // Não precisa mais do pipe, e libera esse descritor.
                     execl(process2,process2, Roda o processo e os outros
                 }
-            } 
+            }
         ```
     - ioctl(fd,request,argp)
         - Executa operações em arquivos especiais (em geral terminais)
@@ -374,38 +378,38 @@ A velocidade de acesso entre memórias é bem diferente. A memória interna (cac
 ```
     --------- .----------.
     |     | Símbolos | Símbolos de #define do programa
-    |     |----------| 
+    |     |----------|
     |     | Data     | Dados de entrada do programa
-    |     |----------| 
+    |     |----------|
     |     | Text     | Programa de fato
-    |     |----------| 
+    |     |----------|
     |     | Header   | Área do programa com informações dos campos acima
    --------- '----------'
-                                
+
                      .---------------.
     Se, ao dar um    :     stack     : Empilhamento
     "push" na pilha  :       |       : (aumentado via push)
-    e ele invadir    :       ^       : 
-    o brk, haverá    :               : 
-    um sinal de erro :       ^       : 
+    e ele invadir    :       ^       :
+    o brk, haverá    :               :
+    um sinal de erro :       ^       :
     um erro.         :       |       : Memória dinâmica
                      :     heap      : (aumenta/diminui via brk)
-    O malloc tenta   :---------------: 
+    O malloc tenta   :---------------:
     ver se áreas da  :               : área para dados
     heap liberadas   :     bss       : estáticos não
     podem ser usadas :               : inicializados
-    para novas       :---------------: 
+    para novas       :---------------:
     alocações. Caso  :     data      : Dados pré-definidos
-    não possa, tenta :---------------: 
+    não possa, tenta :---------------:
     brk. Se não der, :     text      : Programa em si
-    retorna que não  '---------------' 
+    retorna que não  '---------------'
     há mais espaço
     para alocação
 ```
-            
-Quando há acesso FORA do frame, o sistema operacional MATA o programa. 
+
+Quando há acesso FORA do frame, o sistema operacional MATA o programa.
 Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
-                
+
 ```
                       .---------------.
  .----.           .-- |     Pilha     |
@@ -498,9 +502,9 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
                 - Os dados são salvos no estado do usuário.
         - Informação depositada pelo hardware é removida da pilha e o apontador da pilha é redirecionaro para a pilha do administrador de processos (o tratador da rotina).
         - Rotina em C é chamada para realizar o resto do trabalho.
-    
+
     - Código em C
-        - Construção de uma mensagempara ser enviada ao processo associado ao driver (que deve estar bloqueado esperando). 
+        - Construção de uma mensagempara ser enviada ao processo associado ao driver (que deve estar bloqueado esperando).
             - Mensagem indica interrupção para distinguí-la de mensagens do servidor de arquivos.
             - Estado do driver alterado para pronto.
             - Escalonador de processo é chamado
@@ -525,7 +529,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
 * Processos rotineiramente precisam se comunicar
 * Em muitos SOs, quando processos trabalham juntos, eles compartilham algum armazenamento comum onde podem ler e escrever.
 * Quando processos funcionam de maneira indepedente, pode ocorrer um "data race", em que um processo atualiza uma região que estava sendo usada pelo outro, gerando inconsistências.
-    
+
 * Ex: duas threads atualizam a variavel global
     - Situação ideal:
     ```
@@ -548,7 +552,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
     (T1) registrador1 ← registrador1 + 1  ;; i = 0
     (T1) i ← registrador1                 ;; i = 1
     ```
-    
+
 * Ex.: spooling -  Atualização de uma área para impressão
     - Resolução:
     - REGIÃO CRÍTICA: regiões dos processos que podem gerar condições de concorrência são chamadas regiões críticas.
@@ -557,9 +561,9 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
         - Não deve ser feita nenhuma hipótese sobre a velocidade relativa dos processo.
         - Nenhum processo executando fora de sua região crítica deve bloquear outro processo.
         - Nenhum processo deve esperar um tempo arbitrariamente longo para entrar na sua região crítica (adiamento indefinido).
-        
+
     - Solução 1: inibir interrupções
-        - Hardware possui instrução específica para inibir interrupções. 
+        - Hardware possui instrução específica para inibir interrupções.
         - SO usa quando código do kernel está processando (ele precisa para que o próprio tratamento de interrupções não seja afetado).
         - Solução ruim para outros processos
             - Loops infinitos
@@ -567,7 +571,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
             - Etc.
         - Versões antigas do Windows usavam essa técnica - e acabavam travando o computador.
         - Funciona, geralmente, quando há apenas um processador.
-        
+
     - Solução 2: usar código de software
         - Tentativa 1: usar variável global
             ```
@@ -581,7 +585,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
             : A = 0;                 : A = 0;                 :
             ```  
             - Não há garantias de exclusão mútua (que ambos não entrarão na região crítica - o que pode ocorrer porque o teste não tem sincronização boa).
-        
+
         - Tentativa 2: revezamento
             ```
             : int vez = 1; /* variável global */                :
@@ -612,7 +616,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
             : ... // resto            : ... // resto            :
             ```
             - Tem a chance de que ambos entrem ao mesmo tempo.
-            
+
         - Tentativa 4: gentileza
             ```
             : int p1querEntrar = 0;                             :
@@ -628,10 +632,10 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
             : p1querEntrar = 0;       : p2querEntrar = 0;       :
             :                         :                         :
             : ... // resto            : ... // resto            :
-            ``` 
+            ```
             - Um dos processos pode acabar esperando um tempo arbitrariamente longo, caso haja problemas de sincronia.
             - Outra possibilidade é que ambos tentem entrar, e nenhum deles entre.
-            
+
         - Tentativa 5: gentileza mais complexa
             ```
             : int p1querEntrar = 0;                                 :
@@ -659,7 +663,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
             :                           :                           :
             ```
             - Apesar de ser quase impossível termos o problema, ainda é possível que ambos entrem na região crítica.
-        
+
         - Tentativa 6: Algoritmo de Dekker
             ```
             : int p1querEntrar = FALSE;                                 :
@@ -691,7 +695,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
             ```
             - O algoritmo de Dekker usa a ideia de FAVORITISMO para definir quando entraremos ou não em um dado processo.
             - Esse algoritmo impede que os dois processos entrem ao mesmo tempo na região crítica. O 'favorito' serve como uma camada extra que demore tempo demais para liberar o outro.
-            
+
         - Tentativa 7: Algoritmo de Peterson
             ```
             : int p1querEntrar = FALSE;                                 :
@@ -716,7 +720,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
             : }                           : }                           :
             ```
             - Essa solução é um pouco mais concisa, que faz o mesmo que o algoritmo de Dekker.
-        
+
     - Solução 3: Exclusão mútua por Hardware (instrução Test_and_set)
         - Instrução especial do hardware, atômica
         - Test_and_set(a,b) → { a = b; b = TRUE; }
@@ -776,7 +780,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
             Semaforo_binario mutex; /* exclusão mútua */
             Semaforo_contador vazio = TAMBUFFER; /* Controle buffer */
             Semaforo_contador cheio = 0;         /* Controle buffer */
-            
+
             // PRODUTOR
             while(TRUE)
             {
@@ -788,7 +792,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
                 V(mutex); /* Deixa acesso do buffer de itens */
                 V(cheio); /* Aumenta o nº de recursos cheios */
             }
-            
+
             // CONSUMIDOR
             while(TRUE)
             {
@@ -799,8 +803,8 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
                 V(mutex); /* Deixa acesso do buffer de itens */
                 V(vazio); /* Aumenta a quantidade de slots vazios */
             }
-            
-            
+
+
                                                     MUTEX VAZIO CHEIO
                                    ||                 0     3     0
              0 1 2                 || Fila de  PRO1   1     2     1
@@ -828,40 +832,40 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
             - Reativado pela operação SIGNAL.
         - Processo pode emitir SIGNALlogo antes de sair do monitor
             - Quem estiver esperando na fila entra em seguida (se houver).
-        
+
         - Ex: estilo C, originalmente em ADA
             ```
             Monitor ProdutorConsumidor{
               condition full, empty;
               int count;
               procedure coloca_item(item) {
-                if(count == TAMBUFFER) { WAIT(full) } 
+                if(count == TAMBUFFER) { WAIT(full) }
                 /* Espera buffer ter espaço */
-                
+
                 entra_item(item); /* Altera buffer comum */
                 count++;
-                if(count == 1) { SIGNAL(empty) } 
+                if(count == 1) { SIGNAL(empty) }
                 /* avisa que tem dado */
               }
-              
+
               procedure pega_item(&item) {
                 if(count == 0) { WAIT(empty); }
                 /* Espera buffer ter espaço */
-                
+
                 tira_item(item); /* Altera buffer comum */
                 count--;
                 if(count == TAMMBUFFER-1) { SIGNAL(full); }
                 /* Avisa que buffer não está mais cheio */
               }
             }
-            
+
             /* Produtor */
             while(TRUE) {
               registro item_produzido;
               produz(&item_produzido);
               coloca_item(item_produzido);
             }
-            
+
             /* Consumidor */
             while(TRUE) {
               registro item_consumido;
@@ -905,7 +909,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
     - Sempre síncrono.
     ```
     Client CPU
-                
+
     Client
     .----.------.
     |    | Stub |
@@ -983,11 +987,11 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
 * Estimativa de tempo por processo (cada processo dá a sua própria estimativa - se exceder, ou o processo é morto, ou o custo pode aumentar).
 * Objetivo é aumentar fluxo de processos.
 * Pode ser ruim porque processos pequenos podem ficar rodando durante muito tempo, e os grandes (e mais caros) são maiores.
-    
+
 #### Shortest Remaining Time First (Batch)
 * Especialização do anterior, mas melhora a justiça. É a melhor heurística para batch.
 * Um processo que falta apenas 1 min para ser concluído, mas durava 3 dias, não é interrompido para a execução de vários processos de uma hora.
-    
+
 #### Prioridade
 * Número estavelece ordenação nos processos
 | Estática               | Dinâmica                                                  |
@@ -995,13 +999,13 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
 * A prioridade pode ter custos diferentes
 * Highest response ratio (forma de implementação)
 * Prioridade = (tempo espera + tempo serviço) / tempo serviço
-    
+
 #### Round-robin
 * Fila circular
 * Revezamento estrito
-    ``` 
+    ```
     Ready queue
-          
+
     .> P9 -> P7 -> P3 -> P1 -|-> | P0 |
     |                        |     |
     |  ^---------------------'     |
@@ -1074,7 +1078,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
     - Favorece usuários com poucos processos
     - Pode dar fatia a um usuário que não vai precisar
     - Overhead (mais tempo para guardar estatísticas de usuário + percorrer a tabela de usuários)
-    
+
 #### Sistemas multiprocessados
 * Diferente de multiprogramação (que tinha múltiplos programas na mesma CPU).
 * Agora, temos também múltiplas CPUs, múltiplos cores e processadores em hyper-threading (que extrai e decodifica instruções (do ciclo fetch-decode-execute) duas instruções ao mesmo tempo. A execução, porém, continua em um só). Atualmente, há computadores com múltiplas CPUs com vários cores com hiper-threading.
@@ -1090,7 +1094,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
     - Sistema tenta balanceamento de cargas nas CPUs de maneira que cada um tenha processos suficientes.
     - Push-migration: SO verifica periodicamente carga em cada processador (número de processos na fila) - muda se houver desbalanceamento.
     - Pull-migration: escalonador verifica se sua fila. Se estiver vazia, procura na fila de outros processadores e "rouba" processos (cada um tem um escalonador).
-    - O Linux combina pull e push. 
+    - O Linux combina pull e push.
 
 -----------------------------------------------
 ## Deadlocks
@@ -1168,7 +1172,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
                  | p4 |   2  1  1  |  0  1  1 |          |
                  | p5 |   2  0  2  |  2  3  1 |          |
                  '----'------------'----------'----------'
-                
+
                   3 1 3 →  P4 pode terminar: libera 2 1 1
                   5 2 4 →  P2 pode terminar: libera 2 0 0
                   7 2 4 →  P1 pode terminar: libera 0 3 1
@@ -1186,7 +1190,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
         - Informação em blocos de tamanho fixo (128b -> 4K). Cada bloco com número sequencial.
         - Blocos podem ser acessados independentemente (acesso aleatório).
         - Discos, USB, disquetes, CD, DVD.
-    
+
     - De carater:
         - Informação na forma de sequência de caracteres.
         - Leitura/escrita sequencial, sem retorno (stream).
@@ -1197,15 +1201,15 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
     - Dispositivos
     - Controladores
     - Software dependente de dispositivo (acessado pelo compilador C)
-    
+
     - Sistema operacional lida com controlador
     ```    
         Dispositivo     Dispositivo : Componentes mecânicos
-                  \     /           : 
-                   \   /            : 
+                  \     /           :
+                   \   /            :
                 Controlador         : Placa eletrônica
                      |              : (conversão analógico/digital)
-                     |              : 
+                     |              :
             Sistema operacional     : Software
     ```
     - Cada controlador tem alguns registradores que são endereçados pela CPU e acessados diretamente.
@@ -1327,7 +1331,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
         - Cada driver escrito em arquivo fonte separado.
             - Escrita de áreas de outros processos através de mensagens do Kernel.
         - Processos normais, apenas com priviléfios diferentes de mensagens (funcionam do mesmo modo, mas podem mandar algumas mensagens que outras partes do sistema não podem).
-    
+
     - Implementação diferente do Unix
 
     | Minix | Unix |
@@ -1350,8 +1354,8 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
              Kernel  System    Clock           
                       Task     Task     
     ```
-    
-### Principais Drivers do Minix: 
+
+### Principais Drivers do Minix:
 
 * RAM Disk
     - Permite tratar a memória como dispositivo de block, mas com acesso instantâneo.
@@ -1367,7 +1371,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
                   com apenas 1 floppy, colocava-se o "root" em um
                   RAMdisk
             - /dev/mem
-                - Usado para tornar o acesso a memória padronizado 
+                - Usado para tornar o acesso a memória padronizado
                   como qualquer acesso a dispositivo de bloco.
                 - Só pode ser usado como super-usuário
             - /dev/kmem
@@ -1465,7 +1469,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
         - Watchdog timers: semelhante aos sinais para usuário, mas driver chama procedimento estabelecido quando se programou alarme (e.g. stop_motor no Floppy Minix).
     - Coleta de estatísticas em geral
         - Profiling: a cada tic, driver verifica se processo está sendo "profiled" e atualiza contador de tivs do "bin" correspondente ao PC.
-    - Tipos de mensagem 
+    - Tipos de mensagem
         - SET_ALARM
             - PID, procedimento a ser chamado, espera
             - Para usuário, chamada de sistema através de processo servidor.
@@ -1571,13 +1575,13 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
      |                        |
      | BIOS ROM               |
      |                        |
-     | UMB (unused mem block) | 
+     | UMB (unused mem block) |
      |                        |
      | Network ROM BIOS       |
      |                        |
      | Hard Disk ROM BIOS     |
-     |                        | 
-     | UMB (unused mem block) | 
+     |                        |
+     | UMB (unused mem block) |
      |                        |
      | Video ROM BIOS         | BIOS: Basic Input
      |                        |       Output System
@@ -1674,9 +1678,9 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
             - Programa precisa de mais memória - precisa trocar de partição.
         - Precisa de "swap space" na memória secundária (disco).
         - No Linux, existe área de swap, mas ela funciona para a memória virtual. Em SO, porém, costuma-se associá-la com a memória real.
-            
+
 ### Memória virtual
-    
+
 * Com o swapping, era possível carregar e retirar um programa de lugar. Por que não poderíamos colocar trechos de programas espalhados?
 * Os endereços "virtuais" podem não ser os mesmos dos reais
 * É necessário um mecanismo de tradução eficiente, sob o preço de perder a vantafem de reuso da CPU: o apoio vem do hardware.
@@ -1770,7 +1774,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
     - Memória associativa guarda a tabela com últimos acessos.
     - Endereçamento da MA é feito pelo número da página virtual. O conteúdo é o número da página real.
     - Princícipio da localidade garante o funcionamento.
-    
+
     ```
       .------------------------.
       | Virtual Page | Displa- |
@@ -1874,7 +1878,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
 
     ```    
                     Memória Virtual                       Memória Real
-            
+
           9 bits    11 bits      12 bits                   |       |
         |   1    |     3     |    3267    |                |-------|
             |          |            |                      |       |
@@ -1989,7 +1993,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
     - Hoje, os tamanhos estão em torno de 4Kb a 8Kb.
 
 ##### Outros mecanismos de paginação
-    
+
 * Paginação em múltiplos níveis
     - Uma tabela de página por processo pode usar muita memória (páginas de 4k, 42 bits, 20 bits para número de página, 1 milhão de entradas).
     - Tabela pode ser dividida em tabela primária e várias tabelas secundárias (e terciárias, quartenárias, etc.)
@@ -1997,7 +2001,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
     - Mantidas apenas tabelas secundárias utilizadas pelo programa.
     ```
                 Memória virtual                        Memória Real
-            
+
     |    ID1    |    ID2    |   OFFSET   |              |       |
          11           9           12                    |       |
           |           '--.                              |       |
@@ -2084,7 +2088,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
 - 2 tabelas de segmentos, cada uma contém endereços base de até
   8.191 segmentos.
     - Local descriptor tabel (LDT): segmentos privados ao processo.
-    - Global descriptor tabel: segmentos compartilhados entre todos 
+    - Global descriptor tabel: segmentos compartilhados entre todos
       os processo (ex: SO).
 - Entrada na GDT contém
     - Sflag (código ou dados?)
@@ -2645,7 +2649,7 @@ Os sinais são, para o software, o mesmo que uma interrupção para o hardware.
     1. Requisitar páginas de memória, espaço em disco e simplesmente investigar o conteúdo: muitos SOs não apagam o conteúdo - apenas reutilizam.
     2. Tentar chaadas de sistmas ilegais, ou chamadas legais com parâmetros estranhos.
     3. Faça login e clique DEL. O computador pode matar o programa e, então, relogar.
-    
+
 #### Princípios de segurança
 
 * Design de um sistema deve ser público:
